@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/usr/local/google/home/$USER/.oh-my-zsh"
-
+source /etc/bash_completion.d/g4d
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -69,7 +69,6 @@ plugins=(
   git
   github
   pip
-  mecurial
   python
   rake
   rbenv
