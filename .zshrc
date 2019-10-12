@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-source ~/.bash_profile
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
 
@@ -107,10 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+alias go_home="cd ~/personal/code_dumps/go_stuffs"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# opam configuration
-test -r /Users/martinzhang/.opam/opam-init/init.zsh && . /Users/martinzhang/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# Go settings
+export GOPATH=$HOME/personal/code_dumps/go_stuffs
+export PATH=${GOPATH//://bin:}/bin:$PATH
