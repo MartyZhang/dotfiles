@@ -8,29 +8,32 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'bufexplorer.zip'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'let-def/ocp-indent-vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
-Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'w0rp/ale'
-Plugin 'let-def/ocp-indent-vim'
 call vundle#end()
 
 filetype plugin on
 syntax on
 au FileType ocaml setlocal expandtab
 set number
+set tabstop=4
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -47,6 +50,9 @@ let g:syntastic_ocaml_checkers = ['merlin']
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
 
+" Close preview after autocomplete
+autocmd CompleteDone * pclose
+
 " Custom mappings
 let mapleader = ","
 nnoremap <Leader>bt :BufExplorer<CR> 
@@ -55,6 +61,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <C-h> <C-w>h
+vnoremap <C-F> :FormatLines<CR>
 colorscheme gruvbox
 set backspace=indent,eol,start
 
