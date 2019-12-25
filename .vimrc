@@ -25,12 +25,22 @@ Plugin 'valloric/youcompleteme'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'w0rp/ale'
 Plugin 'let-def/ocp-indent-vim'
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/glaive'
+
+
 call vundle#end()
+call glaive#Install()
+
 
 filetype plugin on
 syntax on
 au FileType ocaml setlocal expandtab
 set number
+
+" Tab settings
+set tabstop=4 noexpandtab shiftwidth=4
 
 " Syntastic settings
 set statusline+=%#warningmsg#
@@ -42,6 +52,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_ocaml_checkers = ['merlin']
+let g:ycm_always_populate_location_list = 1
 
 " Merlin set up for Ocaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
@@ -55,6 +66,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <C-h> <C-w>h
+vnoremap <C-K> :FormatLines<CR> 
 colorscheme gruvbox
 set backspace=indent,eol,start
 

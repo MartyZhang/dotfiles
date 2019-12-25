@@ -65,7 +65,7 @@ ZSH_THEME="pygmalion"
 plugins=(
   brew
   bundler
-  colored-man
+  colored-man-pages
   colorize
   dotenv
   git
@@ -78,13 +78,15 @@ plugins=(
   ruby
   vagrant
   virtualenv
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
 
+
 # User configuration
 
+# need to set for vim to work properly
+export VIMRUNTIME=/usr/local/Cellar/vim/8.1.2100/share/vim/vim81
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -112,5 +114,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=$PATH:/usr/local/go/bin
 # opam configuration
 test -r /Users/martinzhang/.opam/opam-init/init.zsh && . /Users/martinzhang/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/martinzhang/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/martinzhang/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/martinzhang/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/martinzhang/google-cloud-sdk/completion.zsh.inc'; fi
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
