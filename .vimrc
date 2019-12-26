@@ -37,8 +37,18 @@ Plugin 'dense-analysis/ale'
 
 call vundle#end()
 call glaive#Install()
+Glaive codefmt gofmt_executable="goimports"
+"{{{ Clang Format
+Glaive codefmt clang_format_style="{
+  \ BasedOnStyle: Google,
+  \  ColumnLimit: 100 }"
+"}}}
 
-
+" Ale fixers
+let g:ale_fixers = {
+\ '*': ['trim_whitespace'],
+\ 'c++': ['clang-format'],
+\ }
 filetype plugin on
 syntax on
 set number
@@ -46,6 +56,7 @@ set number
 " Tab settings
 set tabstop=4 noexpandtab shiftwidth=4
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py' 
 let g:ycm_always_populate_location_list = 1
 
 " Custom mappings
@@ -56,6 +67,10 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <C-h> <C-w>h
+nnoremap <Leader>gd :YcmCompleter GoTo <CR>
+nnoremap <Leader>gr :YcmCompleter GoToReferences <CR>
+nnoremap <Leader>gt :YcmCompleter GoToType <CR>
+nnoremap <Leader>yf :YcmCompleter FixIt <CR>
 vnoremap <C-K> :FormatLines<CR> 
 colorscheme gruvbox
 set backspace=indent,eol,start
