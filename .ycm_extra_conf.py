@@ -30,6 +30,7 @@ flags = [
     'c++',
     '-I',
     '.',
+    '-Wc++11-extension',
 ]
 
 # Add system includes

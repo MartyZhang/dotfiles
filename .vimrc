@@ -20,6 +20,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'jlanzarotta/bufexplorer'
 " Filesearch
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " Abbreviations for Html Editing
 Plugin 'mattn/emmet-vim'
 " Shell commands for vim
@@ -37,11 +38,11 @@ Plugin 'dense-analysis/ale'
 
 call vundle#end()
 call glaive#Install()
-Glaive codefmt gofmt_executable="goimports"
+Glaive codefmt gofmt_executable="gofmt"
 "{{{ Clang Format
 Glaive codefmt clang_format_style="{
   \ BasedOnStyle: Google,
-  \  ColumnLimit: 100 }"
+  \ ColumnLimit: 80 }"
 "}}}
 
 " Ale fixers
@@ -49,15 +50,17 @@ let g:ale_fixers = {
 \ '*': ['trim_whitespace'],
 \ 'c++': ['clang-format'],
 \ }
-filetype plugin on
+filetype plugin indent on
 syntax on
 set number
 
 " Tab settings
-set tabstop=4 noexpandtab shiftwidth=4
+autocmd FileType txt setlocal tabstop=2 shiftwidth=2 expandtab 
 
+" YouCompleteMe Settings
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py' 
 let g:ycm_always_populate_location_list = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Custom mappings
 let mapleader = ","
