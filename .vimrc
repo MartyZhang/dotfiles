@@ -7,35 +7,31 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Git Plugins
 Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
 " Code formatter plugins
+Plugin 'google/glaive'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-maktaba'
-Plugin 'google/glaive'
 " Pretty status bar
+Plugin 'editorconfig/editorconfig-vim'
 Plugin 'itchyny/lightline.vim'
 " Pretty colours
 Plugin 'flazz/vim-colorschemes'
 " Buffer plugin
 Plugin 'jlanzarotta/bufexplorer'
 " Filesearch
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+Plugin 'w0rp/ale'
 " Abbreviations for Html Editing
 Plugin 'mattn/emmet-vim'
 " Shell commands for vim
 Plugin 'tpope/vim-eunuch'
 " Its in the name
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'editorconfig/editorconfig-vim'
-" Autocomplete and Syntax Checking
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
 Plugin 'valloric/youcompleteme'
-Plugin 'dense-analysis/ale'
-
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 call glaive#Install()
 Glaive codefmt gofmt_executable="gofmt"
@@ -53,6 +49,7 @@ let g:ale_fixers = {
 filetype plugin indent on
 syntax on
 set number
+set tabstop=4
 
 " Tab settings
 autocmd FileType txt setlocal tabstop=2 shiftwidth=2 expandtab 
@@ -61,6 +58,9 @@ autocmd FileType txt setlocal tabstop=2 shiftwidth=2 expandtab
 let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py' 
 let g:ycm_always_populate_location_list = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Close preview after autocomplete
+autocmd CompleteDone * pclose
 
 " Custom mappings
 let mapleader = ","

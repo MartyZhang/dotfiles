@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-source ~/.bash_profile
+
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
 unsetopt PROMPT_SP
@@ -109,7 +109,7 @@ export VIMRUNTIME=/usr/local/Cellar/vim/8.1.2100/share/vim/vim81
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+alias go_home="cd ~/personal/code_dumps/go_stuffs"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -127,3 +127,5 @@ if [ -f '/Users/martinzhang/google-cloud-sdk/completion.zsh.inc' ]; then . '/Use
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -f -g ""'
+# Go settings
+export GOPATH=$HOME/personal/code_dumps/go_stuffs
