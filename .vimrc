@@ -6,8 +6,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'sainnhe/gruvbox-material'
 Plugin 'bufexplorer.zip'
 Plugin 'preservim/tagbar'
+Plugin 'tibabit/vim-templates'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'google/vim-maktaba'
@@ -53,18 +55,23 @@ let g:syntastic_ocaml_checkers = ['merlin']
 
 " Close preview after autocomplete
 autocmd CompleteDone * pclose
-
 " Custom mappings
 let mapleader = ","
 nnoremap <Leader>bt :BufExplorer<CR> 
 nnoremap <Leader>yd :YcmCompleter GoToDefinition<CR> 
+nnoremap <Leader>yf :YcmCompleter FixIt<CR> 
 nnoremap <Leader>yd :YcmCompleter GoToReferences<CR> 
 nnoremap <Leader>gg :TagbarToggle<CR>
+nnoremap <Leader><C-o> :FZF<CR>
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nmap <C-h> <C-w>h
 vnoremap <C-K> :FormatLines<CR>
-colorscheme gruvbox
+if has('termguicolors')
+ 	set termguicolors
+ endif
+let g:gruvbox_material_background = 'soft'
+colorscheme gruvbox-material
+set bg=light
 set backspace=indent,eol,start
-
