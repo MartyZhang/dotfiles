@@ -65,20 +65,15 @@ ZSH_THEME="pygmalion"
 plugins=(
   brew
   bundler
-  colored-man
+  colored-man-pages
   colorize
   dotenv
   git
+  golang
   github
-  osx
   pip
   python
-  rake
-  rbenv
-  ruby
-  vagrant
   virtualenv
-  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -115,3 +110,4 @@ alias go_home="cd ~/personal/code_dumps/go_stuffs"
 # Go settings
 export GOPATH=$HOME/personal/code_dumps/go_stuffs
 export PATH=${GOPATH//://bin:}/bin:$PATH
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
